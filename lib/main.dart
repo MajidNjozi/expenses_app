@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var location = FloatingActionButtonLocation.endFloat;
   var currency = 'Tsh ';
 
   @override
@@ -33,32 +34,42 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(icon: Icon(Icons.add), onPressed: () {}),
+          ],
           backgroundColor: Colors.orangeAccent[700],
           title: const Text(
             'Expenses App',
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              height: 50,
-              child: const Card(
-                color: Colors.black,
-                child: Center(
-                  child: Text(
-                    "Chart",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 50,
+                child: const Card(
+                  color: Colors.black,
+                  child: Center(
+                    child: Text(
+                      "Chart",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            UserTransactions(),
-          ],
+              UserTransactions(),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: location,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {},
         ),
       ),
     );

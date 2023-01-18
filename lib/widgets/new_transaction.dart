@@ -19,13 +19,24 @@ class NewTransaction extends StatelessWidget {
           children: [
             TextField(
               controller: titleController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Text('Title'),
               ),
             ),
             TextField(
+              onSubmitted: (_) {
+                if (titleController.text == null ||
+                    (double.parse(amountController.text)) < 0) {
+                  return;
+                }
+                myFunction(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
+              },
+              keyboardType: TextInputType.number,
               controller: amountController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Text('Amount'),
               ),
             ),
@@ -33,12 +44,16 @@ class NewTransaction extends StatelessWidget {
               onPressed: () {
                 // print(titleController.text);
                 // print(amountController.text);
+                if (titleController.text == null ||
+                    (double.parse(amountController.text)) < 0) {
+                  return;
+                }
                 myFunction(
                   titleController.text,
                   double.parse(amountController.text),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Add Transaction',
               ),
             )

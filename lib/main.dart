@@ -12,7 +12,10 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
       home: HomePage(),
     );
   }
@@ -34,10 +37,10 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColor,
           actions: [
             IconButton(icon: Icon(Icons.add), onPressed: () {}),
           ],
-          backgroundColor: Colors.orangeAccent[700],
           title: const Text(
             'Expenses App',
           ),
@@ -50,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 50,
                 child: const Card(
-                  color: Colors.black,
+                  //  color: Colors.black,
                   child: Center(
                     child: Text(
                       "Chart",
@@ -68,6 +71,7 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButtonLocation: location,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
           child: Icon(Icons.add),
           onPressed: () {},
         ),

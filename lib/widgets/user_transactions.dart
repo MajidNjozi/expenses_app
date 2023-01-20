@@ -9,30 +9,30 @@ import 'new_transaction.dart';
 import 'transactions_list.dart';
 
 class UserTransactions extends StatefulWidget {
-  const UserTransactions({super.key});
+//  const UserTransactions({super.key});
 
   @override
   State<UserTransactions> createState() => _UserTransactionsState();
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
-  var userTransactions = [
-    Transaction(
-      id: 'T1',
-      title: 'Shoes',
-      amount: 200,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'T2',
-      title: 'New Phone',
-      amount: 500,
-      date: DateTime.now(),
-    ),
+  List<Transaction> userTransactions = [
+    // Transaction(
+    //   id: 'T1',
+    //   title: 'Shoes',
+    //   amount: 200,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 'T2',
+    //   title: 'New Phone',
+    //   amount: 500,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
-    var NewTx = Transaction(
+    Transaction NewTx = Transaction(
         amount: txAmount,
         date: DateTime.now(),
         id: DateTime.now().toString(),
